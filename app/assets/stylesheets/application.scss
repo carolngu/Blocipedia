@@ -21,8 +21,32 @@
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
   overflow: auto;
+
+  ul {
+    overflow: auto;
+    float: left;
+
+    li {
+      float: left;
+
+      a {
+        padding: 20px;
+      }
+    }
+  }
 }
 
 .user-info {
   float: right;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
 }
