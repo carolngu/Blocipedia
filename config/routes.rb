@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+  get 'about' => "home#about", as: :about
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -21,12 +22,12 @@ Rails.application.routes.draw do
   #       get 'short'
   #       post 'toggle'
   #     end
-  #
+  resources :users, only: [:new, :create, :show]
   #     collection do
   #       get 'sold'
   #     end
   #   end
-
+  resources :wikis
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -54,6 +55,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
   root to: "home#index"
 end
