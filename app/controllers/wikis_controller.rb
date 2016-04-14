@@ -34,6 +34,7 @@ class WikisController < ApplicationController
   def update
     @wiki = Wiki.find_by(id: params[:id])
     @wiki.assign_attributes(wiki_params)
+    authorize @wiki 
 
     if @wiki.save
       flash[:notice] = "Wiki has been updated."
