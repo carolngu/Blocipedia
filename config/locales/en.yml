@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  pundit:
+    default: "You cannot perform this action."
+    wiki_policy:
+      create?: "Please upgrade to premium for private Wikis!"

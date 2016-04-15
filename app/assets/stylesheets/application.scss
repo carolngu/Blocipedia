@@ -51,7 +51,26 @@ ul {
   }
 }
 
-.notice {
+.flash-notice {
   padding: 20px;
   color: green;
+}
+
+.flash-alert {
+  padding: 20px;
+  color: red;
+}
+
+form {
+  .actions {
+    padding: 10px 0;
+  }
+}
+
+.become-premium-form {
+  margin-bottom: 20px;
+}
+
+.downgrade {
+  padding: 10px;
 }
