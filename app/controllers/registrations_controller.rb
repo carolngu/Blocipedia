@@ -10,8 +10,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def downgrade
-    if current_user.role == "premium"
+    if current_user.is_premium?
       current_user.role = "standard"
+      current_user.wikis.update_all(private: false)
 
       if current_user.save!
         flash[:notice] = "Your membership has been changed to standard."

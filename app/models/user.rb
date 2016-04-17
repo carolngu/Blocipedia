@@ -9,4 +9,16 @@ class User < ActiveRecord::Base
   has_many :wikis, dependent: :destroy
 
   enum role: [:admin, :standard, :premium]
+
+  def is_premium?
+    role == "premium"
+  end
+
+  def is_standard?
+    role == "standard"
+  end
+
+  def is_admin?
+    role == "admin"
+  end
 end

@@ -45,7 +45,7 @@
 <% end %>
 
 <% if current_user.role == "premium" %>
-  <%= button_to "Downgrade my account", downgrade_path, class: "downgrade", data: { confirm: "Are you sure you want to downgrade? You will be charged again if you ever want to upgrade to premium again." } %>
+  <%= button_to "Downgrade my account", downgrade_path, class: "downgrade", data: { confirm: "Are you sure you want to downgrade? All your private wikis will become public and you will be charged again if you ever want to upgrade to premium again." } %>
 <% end %>
 
 <h3>Cancel my account</h3>
