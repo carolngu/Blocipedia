@@ -3,7 +3,7 @@ class WikisController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @wikis = Wiki.visible_to(current_user)
+    @wikis = policy_scope(Wiki)
   end
 
   def show
@@ -63,6 +63,34 @@ class WikisController < ApplicationController
       flash.now[:alert] = "There was an error in deleting the wiki."
       render :show
     end
+  end
+
+  def add_collaborators
+    @wiki = Wiki.find_by(id: params[:id])
+    emails_string = params[:emails]
+    emails_array = emails_string.split(" ")
+    errors = ""
+    emails_array.each do |email|
+      user = User.find_by(email: email)
+      if user
+        if user == @wiki.user
+          errors << "Collaborator can not be creator of Wiki. "
+        else
+          c = Collaborator.new(user: user, wiki: @wiki)
+          if c.save
+            next
+          else
+            errors << "User #{email} is already a collaborator. "
+          end
+        end
+      else
+        errors << "Unable to locate user #{email}. Please try again. "
+      end
+      if errors.length > 0
+        flash[:alert] = errors
+      end
+    end
+    redirect_to action: :edit
   end
 
   private

@@ -28,7 +28,10 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  resources :wikis
+  resources :wikis do
+    resources :collaborators
+    member { post 'add_collaborators' }
+  end
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
