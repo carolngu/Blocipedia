@@ -20,10 +20,9 @@
 .nav-bar {
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
-  overflow: auto;
+  overflow: hidden;
 
   ul {
-    overflow: auto;
     float: left;
 
     li {

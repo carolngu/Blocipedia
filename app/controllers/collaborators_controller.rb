@@ -1,5 +1,4 @@
 class CollaboratorsController < ApplicationController
-
   def destroy
     c = Collaborator.find_by(id: params[:id])
     wiki = c.wiki
