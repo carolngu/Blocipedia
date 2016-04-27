@@ -1,0 +1,22 @@
+%h1 Edit Wiki
+.row
+  .col-md-4
+    %p Rules for New Wiki:
+    %ul
+      %li Make sure Wiki is true.
+      %li Anything offensive is frowned upon. (I will get you.)
+      %li Make the wifi fun to read.
+    %br/
+    - if current_user.admin? || current_user.premium? && current_user == @wiki.user
+      %h4 Collaborators
+      - @wiki.collaborators.each do |c|
+        %p
+          = c.user.email
+          \- #{button_to "Remove", wiki_collaborator_path(@wiki, c), method: :delete}
+      = form_tag add_collaborators_wiki_path(@wiki) do |f|
+        .form-group
+          = label_tag :emails
+          = text_field_tag :emails, "", {class: 'form-control'}
+        = submit_tag "Submit", class: "btn btn-success"
+  .col-md-8
+    = render partial: 'form', local: { wiki: @wiki }

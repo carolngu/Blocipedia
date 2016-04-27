@@ -34,6 +34,7 @@ gem 'devise'
 gem 'pundit'
 gem 'stripe'
 gem 'redcarpet', '~> 3.0.0'
+gem 'haml'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

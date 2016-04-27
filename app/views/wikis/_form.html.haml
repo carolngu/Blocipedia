@@ -1,0 +1,13 @@
+= form_for @wiki do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', placeholder: "What's your Wiki title?"
+  .form-group
+    = f.label :body
+    = f.text_area :body, rows: 8, class: 'form-control', placeholder: "Describe your Wiki here."
+  - if current_user.admin? || current_user.premium? && current_user == @wiki.user
+    .form-group
+      = f.label :private, class: 'checkbox' do
+        = f.check_box :private
+        Do you want your Wiki to be private?
+  = f.submit "Save", class: "btn btn-success"

@@ -1,0 +1,10 @@
+%h1 New Wiki
+.row
+  .col-md-4
+    %p Rules for New Wiki:
+    %ul
+      %li Make sure Wiki is true.
+      %li Anything offensive is frowned upon. (I will get you.)
+      %li Make the wifi fun to read.
+  .col-md-8
+    = render partial: 'form', local: { wiki: @wiki }
