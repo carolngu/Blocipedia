@@ -12,17 +12,7 @@
     <br/>
 
     <% if current_user.admin? || current_user.premium? && current_user == @wiki.user %>
-      <h4>Collaborators</h4>
-        <% @wiki.collaborators.each do |c| %>
-          <p><%= c.user.email %> - <%= button_to "Remove", wiki_collaborator_path(@wiki, c), method: :delete %></p>
-        <% end %>
-      <%= form_tag add_collaborators_wiki_path(@wiki) do |f| %>
-        <div class="form-group">
-          <%= label_tag :emails %>
-          <%= text_field_tag :emails, "", {class: 'form-control'} %>
-        </div>
-        <%= submit_tag "Submit", class: "btn btn-success" %>
-      <% end %>
+      <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
     <% end %>
 
   </div>

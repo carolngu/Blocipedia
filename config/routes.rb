@@ -30,7 +30,6 @@ Rails.application.routes.draw do
   #   end
   resources :wikis do
     resources :collaborators
-    member { post 'add_collaborators' }
   end
   # Example resource route with sub-resources:
   #   resources :products do

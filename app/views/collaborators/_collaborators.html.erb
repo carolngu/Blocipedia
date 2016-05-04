@@ -1,0 +1,7 @@
+<h4>Collaborators</h4>
+<% wiki.collaborators.each do |c| %>
+<div class="collaborator-item">
+  <span><%= c.user.email %> - <%= button_to "Remove", wiki_collaborator_path(wiki, c), method: :delete %></span>
+</div>
+<% end %>
+<%= render partial: 'collaborators/form', locals: { wiki: wiki, collaborator: @collaborator } %>
